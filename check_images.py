@@ -37,33 +37,31 @@ def main():
     #     dognames.txt
     in_arg = get_input_args()
     
-    # check_command_line_arguments(in_arg)
+    check_command_line_arguments(in_arg)
 
     # 2. Creates a dictionary of pet labels based upon the filenames of the image files.
     results = get_pet_labels(in_arg.dir)
 
-    # check_creating_pet_image_labels(results)
+    check_creating_pet_image_labels(results)
 
     # 3. Creates Classifier Labels with classifier function, Compares Labels, and adds these results to the results dictionary
     classify_images(in_arg.dir, results, in_arg.arch)
 
     # Function that checks Results Dictionary using results    
-    # check_classifying_images(results)    
+    check_classifying_images(results)    
 
     # 4. Adjusts the results dictionary to determine if classifier correctly classified images as 'a dog' or 'not a dog'. 
     # This demonstrates if the model can correctly classify dog images as dogs (regardless of breed)
     adjust_results4_isadog(results, in_arg.dogfile)
 
     # Function that checks Results Dictionary for is-a-dog adjustment using results
-    # check_classifying_labels_as_dogs(results)
-
+    check_classifying_labels_as_dogs(results)
 
     # 5. Calculates results of run and puts statistics in the Results Statistics
     results_stats = calculates_results_stats(results)
 
     # Function that checks Results Statistics Dictionary using results_stats
-    # check_calculating_results(results, results_stats)
-
+    check_calculating_results(results, results_stats)
 
     # 6. Prints summary results, incorrect classifications of dogs (if requested) and incorrectly classified breeds (if requested)
     print_results(results, results_stats, in_arg.arch, True, True)
@@ -72,7 +70,6 @@ def main():
     header = ["CNN Model Architecture:", "% Not-a-Dog Correct", "% Dogs Correct", "% Breeds Correct"]
     df = pd.DataFrame([[in_arg.arch, results_stats['pct_correct_notdogs'], results_stats['pct_correct_dogs'],
                         results_stats['pct_correct_breed']]], columns=header)
-    print("df: ", df)
     if os.path.isfile('models_comparison/models_comparison.csv'):
         df.to_csv('models_comparison/models_comparison.csv', mode='a', header=False, index=False)
     else:
