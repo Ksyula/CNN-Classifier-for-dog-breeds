@@ -1,10 +1,12 @@
 <h1>:dog: Dog breed classifier service</h1>
 
 <p float="left">
-  <img src="pet_images/cat_07.jpg" width="200" />
+  <img src="pet_images/Dalmatian_04068.jpg" width="200" />
   <img src="pet_images/Collie_03797.jpg" width="200" /> 
-  <img src="pet_images/gecko_80.jpg" width="200" />
+  <img src="pet_images/Beagle_01170.jpg" width="200" />
 </p>
+
+With CNN pertained models the service define whether the image is a dog and what breed of this dog.
 
 For every submitted image the service can tell:
 - whether the image is an image of a dog or not
