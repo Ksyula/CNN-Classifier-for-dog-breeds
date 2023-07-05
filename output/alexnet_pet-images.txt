@@ -1,0 +1,16 @@
+
+INCORRECT Dog/NOT Dog Assignments:
+
+INCORRECT Dog Breed Assignment:
+['beagle', 'walker hound, walker foxhound', 0, 1, 1] -- Labels have a misclassification of breeds
+['boston terrier', 'basenji', 0, 1, 1] -- Labels have a misclassification of breeds
+['beagle', 'english foxhound', 0, 1, 1] -- Labels have a misclassification of breeds
+['golden retriever', 'tibetan mastiff', 0, 1, 1] -- Labels have a misclassification of breeds
+['great pyrenees', 'kuvasz', 0, 1, 1] -- Labels have a misclassification of breeds
+['golden retriever', 'afghan hound, afghan', 0, 1, 1] -- Labels have a misclassification of breeds
+df:    CNN Model Architecture:  ...  % Breeds Correct
+0                 alexnet  ...              80.0
+
+[1 rows x 4 columns]
+
+** Total Elapsed Runtime: 0:0:1

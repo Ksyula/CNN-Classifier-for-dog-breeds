@@ -1,0 +1,14 @@
+
+INCORRECT Dog/NOT Dog Assignments:
+['cat', 'norwegian elkhound, elkhound', 0, 0, 1] -- Labels are misclassified as dogs
+
+INCORRECT Dog Breed Assignment:
+['beagle', 'walker hound, walker foxhound', 0, 1, 1] -- Labels have a misclassification of breeds
+['golden retriever', 'leonberg', 0, 1, 1] -- Labels have a misclassification of breeds
+['great pyrenees', 'kuvasz', 0, 1, 1] -- Labels have a misclassification of breeds
+df:    CNN Model Architecture:  ...  % Breeds Correct
+0                  resnet  ...              90.0
+
+[1 rows x 4 columns]
+
+** Total Elapsed Runtime: 0:0:1
