@@ -6,7 +6,7 @@
   <img src="pet_images/Beagle_01170.jpg" width="200" />
 </p>
 
-With CNN pertained models the service define whether the image is a dog and what breed of this dog.
+With CNN pertained models the service defines whether the image is a dog and what breed of this dog.
 
 For every submitted image the service can tell:
 - whether the image is an image of a dog or not
