@@ -80,7 +80,7 @@ sh run_models_batch_uploaded.sh
 In this image classification task three CNN pretrained models with different architectures have been used independently. The evaluation table for these models comparison is bellow:
 
 | CNN Model Architecture | % Not-a-Dog Correct | % Dogs Correct | % Breeds Correct |
-|----------|:-------------:|------:|
+|-------------|:-----:|------:|------|
 | **RESNET**  |  90.0 | 100.0 | 90.0 |
 | **ALEXNET** | 100.0 | 100.0 | 80.0 |
 | **VGG**     | 100.0 | 100.0 | 93.3 |
