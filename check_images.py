@@ -33,7 +33,7 @@ def main():
     # The CNN model architecture to use --arch
     #     resnet, alexnet, or vgg (pick one as the default). You will find them in classifier.py.
     # The file that contains the list of valid dognames --dogfile
-    #     dognames.txt
+    #     input/dognames.txt
     in_arg = get_input_args()
 
     check_command_line_arguments(in_arg)

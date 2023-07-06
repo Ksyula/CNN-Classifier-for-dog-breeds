@@ -25,7 +25,7 @@ def get_input_args():
     Command Line Arguments:
       1. Image Folder as --dir with default value 'pet_images'
       2. CNN Model Architecture as --arch with default value 'vgg'
-      3. Text File with Dog Names as --dogfile with default value 'dognames.txt'
+      3. Text File with Dog Names as --dogfile with default value 'input/dognames.txt'
     This function returns these arguments as an ArgumentParser object.
     Parameters:
      None - simply using argparse module to create & store command line arguments
@@ -45,7 +45,7 @@ def get_input_args():
     parser.add_argument(
         "--dogfile",
         type=str,
-        default="dognames.txt",
+        default="input/dognames.txt",
         help="file that contains dognames",
     )
 

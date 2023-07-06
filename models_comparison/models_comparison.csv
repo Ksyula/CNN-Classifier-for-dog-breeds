@@ -1,3 +1,5 @@
 CNN Model Architecture:,% Not-a-Dog Correct,% Dogs Correct,% Breeds Correct
 resnet,90.0,100.0,90.0
 alexnet,100.0,100.0,80.0
+vgg,100.0,100.0,93.33333333333333
+vgg,100.0,100.0,93.33333333333333
