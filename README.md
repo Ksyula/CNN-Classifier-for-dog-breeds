@@ -1,4 +1,6 @@
-<h1>:dog: Dog breed classifier service</h1>
+# :dog: Dog Breed Classification
+
+This repository contains code and resources to help you classify dog images and identify their specific breeds using [Convolutional Neural Networks](https://en.wikipedia.org/wiki/Convolutional_neural_network) (CNNs).
 
 <p float="left">
   <img src="pet_images/Dalmatian_04068.jpg" width="200" />
@@ -6,78 +8,99 @@
   <img src="pet_images/Beagle_01170.jpg" width="200" />
 </p>
 
-With CNN pertained models the service defines whether the image is a dog and what breed of this dog.
+- [:dog: Dog Breed Classification](#dog-dog-breed-classification)
+  - [Description](#description)
+  - [Features](#features)
+  - [Getting Started](#getting-started)
+    - [1. Set up the Environment](#1-set-up-the-environment)
+    - [2. Classify Images Using the Service](#2-classify-images-using-the-service)
+    - [3. Batch Classification](#3-batch-classification)
+  - [How Does It Work](#how-does-it-work)
+  - [Performance Comparison of CNN Models](#performance-comparison-of-cnn-models)
+  - [Classify Your Own Image](#classify-your-own-image)
 
-For every submitted image the service can tell:
-- whether the image is an image of a dog or not
-- if it is a dog image then what breed of a dog it is.
 
-<h2>:robot: How does it work</h2>
+## Description
+This service utilizes pre-trained CNN models to accurately determine whether an image represents a dog, and if so, it further predicts the specific breed of the dog. By leveraging state-of-the-art deep learning techniques, the service offers robust and accurate classification results.
 
-For a classification task the service uses a set of pretrained [CNN models](https://en.wikipedia.org/wiki/Convolutional_neural_network). 
-First it extracts the pet image label from the filename before classifying the images using a pretrained CNN model. Then it predicts a breed based on submitted image.
-The service provides a comparison of the performance of 3 different CNN model architectures to determine which provides the 'best' classification. Short summary statistics for the comparison can be found in `output/` folder.
+## Features
+The Dog Breed Classification service provides the following features:
 
-<h2>:rocket: How to run the service</h2>
+1. **Dog Image Detection:** Given an input image, the service determines whether the image contains a dog or not.
+2. **Breed Identification:** If the image is identified as a dog, the service performs breed classification and provides the predicted breed of the dog.
 
-1. Set up environment
+## Getting Started
 
+To get started with the Dog Breed Classification Service, please follow the steps below:
+
+### 1. Set up the Environment
+Before using the service, ensure that you have the required dependencies installed in a virtual environment. Follow these steps:
+
+* If you don't already have virtualenv installed, run the following command:
 ```
-pip install virtualenv          (if you don't already have virtualenv installed)
-virtualenv venv                 (to create your new environment (called 'venv' here))
-source venv/bin/activate        (to enter the virtual environment)
-pip install -r requirements.txt (to install the requirements in the current environment)
+pip install virtualenv
+```
+* Create a new virtual environment by executing the following command:
+```
+virtualenv venv
+```
+* Activate the virtual environment by running the appropriate command based on your operating system:
+  - On Unix/Linux:
+        ```
+        source venv/bin/activate
+        ```
+  - On Windows:
+        ```
+        venv\Scripts\activate
+        ```
+* Install the necessary dependencies by executing the following command:
+```
+pip install -r requirements.txt
 ```
 
-2. Call from terminal
+### 2. Classify Images Using the Service
+To classify images and determine the breed of dogs, you can utilize the service via the terminal. Follow these steps:
 
+* Ensure that you have activated the virtual environment.
+* Run the following command to execute the service:
 ```
 python3 check_images.py --dir pet_images/ --arch vgg --dogfile dognames.txt
 ```
-- Folder that contains the pet images --dir
-        'pet_images/'
-        'uploaded_images/'
-- The CNN model architecture to use --arch
-        'resnet', 
-        'alexnet', 
-        'vgg'
-- The file that contains the list of valid dognames --dogfile
-        'dognames.txt'
+Use default parameters from terminal call or customise them: 
+  - Folder that contains the pet images `--dir`
+          `pet_images/`
+          `uploaded_images/`
+  - The CNN model architecture to use `--arch`
+          `resnet` 
+          `alexnet`
+          `vgg`
+  - The file that contains the list of valid dognames `--dogfile`
+          `input/dognames.txt`
 
-3. Batch run for all models at once
-
+### 3. Batch Classification
+Run bash script to classify the images with 3 different CNN models:
 ```
 sh run_models_batch.sh
 ```
-check the generated files with statistics per CNN model architecture in the `output/` folder.
+check the generated statistics per CNN model architecture in the `output/` folder.
 
-<h2> :cat: Classify your own image</h2>
+## How Does It Work
+The Dog Breed Classification Service employs a set of pre-trained CNN models to classify dog images and predict their breeds. Here's an overview of the process:
 
-1. Upload your images to the `uploaded_images/` folder, then run the `sh run_models_batch_uploaded.sh` to classify those images.
+1. **Image Label Extraction:** The service extracts the pet image label from the filename. It assumes that the filename contains the label information, which is typically the breed of the dog. For example, if the filename is "golden_retriever_01.jpg," the extracted label would be "golden retriever."
 
-Your images have to follow the **image requirements**:
-   * Images are in jpeg format with extension `.jpg`
-   * Images are approximately square in shape (their height and width are approximately the same numbers of pixels).
-   * The name convention is an *object_number.jpg*. This name is formatted such that if more than one word makes up the animal name those words are separated by an unscore `_` (e.g. `Dog_01.jpg`, `Animal_Name_25.jpg`, `Black_bear_01.jpg`, `Coffee_mug_01.jpg`)
-You can upload imegae of dogs, animals and even objects - the service tells you if it is not a dog on the image.
+2. **Image Classification:** After extracting the image label, the service proceeds to classify the image using a pre-trained CNN model. The CNN model has been trained on a large dataset of dog images and is capable of recognizing various dog breeds. The image is fed into the model, and the service obtains a probability distribution over different dog breeds.
 
-2. Run three different classifier and look up the results in the `output/` folder.
+3. **Breed Prediction:** Based on the probability distribution generated by the CNN model, the service predicts the most likely breed of the dog in the submitted image. The breed with the highest probability is selected as the predicted breed.
 
-Manually from terminal:
-```
-python check_images.py --dir uploaded_images/ --arch resnet  --dogfile dognames.txt > output/resnet_uploaded-images.txt
-python check_images.py --dir uploaded_images/ --arch alexnet --dogfile dognames.txt > output/alexnet_uploaded-images.txt
-python check_images.py --dir uploaded_images/ --arch vgg  --dogfile dognames.txt > output/vgg_uploaded-images.txt
-```
+4. **Model Comparison:** The Dog Breed Classification Service goes a step further by comparing the performance of three different CNN model architectures. These models have been trained using various techniques and architectures to improve classification accuracy. The service evaluates the performance of each model and provides a comparison of their results.
 
-Automated via bash script:
-```
-sh run_models_batch_uploaded.sh
-```
+5. **Summary Statistics:** To assist users in understanding the comparative performance of the CNN models, the service generates short summary statistics. These statistics can be found in the `models_comparison/` folder and provide insights into the accuracy and effectiveness of each model in classifying dog breeds.
 
-<h2>:bar_chart: Performance comparison of CNN model architectures</h2>
 
-In this image classification task three CNN pretrained models with different architectures have been used independently. The evaluation table for these models comparison is bellow:
+## Performance Comparison of CNN Models
+
+In this image classification task, we have used three different pre-trained CNN models with distinct architectures. The table below presents the evaluation results for the comparison of these models:
 
 | CNN Model Architecture | % Not-a-Dog Correct | % Dogs Correct | % Breeds Correct |
 |-------------|:-----:|------:|------|
@@ -85,4 +108,26 @@ In this image classification task three CNN pretrained models with different arc
 | **ALEXNET** | 100.0 | 100.0 | 80.0 |
 | **VGG**     | 100.0 | 100.0 | 93.3 |
 
-Based upon the performance comparison the **VGG** model architecture did the best at classifying the dog breeds on a sample of the images in `pet_images` folder. It identified the highest number of dog breeds correctly compared with **RESNET** and **ALEXNET** archituctures.
+Based on the performance comparison, the **VGG** model architecture demonstrated the best performance in classifying the dog breeds on a sample of the images from the `pet_images/` folder. It achieved the highest accuracy in identifying the correct dog breeds compared to the **RESNET** and **ALEXNET** architectures.
+
+## Classify Your Own Image
+Follow these steps:
+
+1. **Upload Your Images:** Place your images in the `uploaded_images/` folder. Ensure that your images meet the following image requirements:
+   - Images should be in JPEG format with the extension `.jpg`.
+   - Images should be approximately square in shape, meaning their height and width have approximately the same number of pixels.
+   - Follow the naming convention for your images. The name format should be `object_number.jpg`. If the animal name consists of multiple words, separate them with an underscore `_`. For example: `Dog_01.jpg`, `Animal_Name_25.jpg`, `Black_bear_01.jpg`, `Coffee_mug_01.jpg`.
+Note that you can upload images of dogs, animals, or even objects. The service will indicate if the image does not contain a dog.
+
+2. **Run the Classifiers:** To classify the uploaded images using the different CNN models, follow these options:
+* Option 1: Manual Execution from Terminal
+```
+python check_images.py --dir uploaded_images/ --arch resnet --dogfile input/dognames.txt > output/resnet_uploaded-images.txt
+python check_images.py --dir uploaded_images/ --arch alexnet --dogfile input/dognames.txt > output/alexnet_uploaded-images.txt
+python check_images.py --dir uploaded_images/ --arch vgg --dogfile input/dognames.txt > output/vgg_uploaded-images.txt
+```
+* Option 2: Automated Execution via Bash Script
+```
+sh run_models_batch_uploaded.sh
+```
+These commands will run the three different classifiers on the uploaded images and generate result files in the `output/` folder.
