@@ -1,3 +1,40 @@
+Command Line Arguments:
+     dir = uploaded_images/ 
+    arch = vgg 
+ dogfile = input/dognames.txt
+
+Pet Image Label Dictionary has 4 key-value pairs.
+Below are 4 of them:
+ 1 key:                     Dog_01.jpg  label:                        dog
+ 2 key:                     Dog_02.jpg  label:                        dog
+ 3 key:       cup_of_coffee_198136.jpg  label:              cup of coffee
+ 4 key:                     fox_01.jpg  label:                        fox
+
+     MATCH:
+
+ NOT A MATCH:
+
+                    Dog_01.jpg: 
+Real:                        dog   Classifier:                         beagle
+
+                    Dog_02.jpg: 
+Real:                        dog   Classifier:                         beagle
+
+      cup_of_coffee_198136.jpg: 
+Real:              cup of coffee   Classifier:                       espresso
+
+                    fox_01.jpg: 
+Real:                        fox   Classifier:         red fox, vulpes vulpes
+
+# Total Images 4 # Matches: 0 # NOT Matches: 4
+
+ ** Statistics from calculates_results_stats() function:
+N Images:  4  N Dog Images:  2  N NotDog Images:  2 
+Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:   0.0
+
+ ** Check Statistics - calculated from this function as a check:
+N Images:  4  N Dog Images:  2  N NotDog Images:  2 
+Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:   0.0
 
 INCORRECT Dog/NOT Dog Assignments:
 
