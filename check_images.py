@@ -15,13 +15,13 @@ import os.path
 import pandas as pd
 
 # Imports functions created for this program
-from get_input_args import get_input_args
-from get_pet_labels import get_pet_labels
+from utils.get_input_args import get_input_args
+from utils.get_pet_labels import get_pet_labels
 from classify_images import classify_images
-from adjust_results4_isadog import adjust_results4_isadog
-from calculates_results_stats import calculates_results_stats
-from print_results import print_results
-from print_functions_for_lab_checks import *
+from utils.adjust_results4_isadog import adjust_results4_isadog
+from utils.calculates_results_stats import calculates_results_stats
+from utils.print_results import print_results
+from utils.print_functions_for_lab_checks import *
 
 
 def main():

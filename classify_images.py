@@ -11,7 +11,7 @@
 ##
 # Imports classifier function for using CNN to classify images
 
-from classifier import classifier
+from classifier.classifier import classifier
 
 
 def classify_images(images_dir, results_dic, model):
