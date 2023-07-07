@@ -93,7 +93,7 @@ To classify images and determine the breed of dogs, you can utilize the service 
 * Ensure that you have activated the virtual environment.
 * Run the following command to execute the service:
 ```
-python3 check_images.py --dir pet_images/ --arch vgg --dogfile dognames.txt
+python3 check_images.py --dir pet_images/ --arch vgg --dogfile input/dognames.txt
 ```
 Use default parameters from terminal call or customise them: 
   - Folder that contains the pet images `--dir`
