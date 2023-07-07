@@ -11,6 +11,7 @@ This repository contains code and resources to help you classify dog images and 
 - [:dog: Dog Breed Classification](#dog-dog-breed-classification)
   - [Description](#description)
   - [Features](#features)
+  - [Project Structure](#project-structure)
   - [Getting Started](#getting-started)
     - [1. Set up the Environment](#1-set-up-the-environment)
     - [2. Classify Images Using the Service](#2-classify-images-using-the-service)
@@ -28,6 +29,34 @@ The Dog Breed Classification service provides the following features:
 
 1. **Dog Image Detection:** Given an input image, the service determines whether the image contains a dog or not.
 2. **Breed Identification:** If the image is identified as a dog, the service performs breed classification and provides the predicted breed of the dog.
+
+## Project Structure
+```
+classifier                        # application of torchvision models
+   |-- classifier.py
+   |-- test_classifier.py
+utils                             # utils for extracting arguments, labels, producing results and checking the code
+   |-- adjust_results4_isadog.py
+   |-- calculates_results_stats.py
+   |-- get_input_args.py
+   |-- get_pet_labels.py
+   |-- print_functions_for_lab_checks.py
+   |-- print_results.py
+input                             # .txt files with dog breeds
+output                            # .txt files with model performance and results of classification
+models_comparison                 # .csv with performances comparison of different classificators        
+
+pet_images                        # folder with images of animals for a model evaluation
+uploaded_images                   # folder to upload your images to classify them
+
+check_images.py                   # main script with general logic of the service
+classify_images.py                # script for calling a classifier for images
+
+requirements.txt                  # environmental requirements
+
+run_models_batch.sh               # script to run models evaluation in a batch
+run_models_batch_uploaded.sh      # script to produce models inferences for uploaded images
+```
 
 ## Getting Started
 
