@@ -16,8 +16,8 @@ This repository contains code and resources to help you classify dog images and 
     - [1. Set up the Environment](#1-set-up-the-environment)
     - [2. Classify Images Using the Service](#2-classify-images-using-the-service)
     - [3. Batch Classification](#3-batch-classification)
-  - [How Does It Work](#how-does-it-work)
   - [Performance Comparison of CNN Models](#performance-comparison-of-cnn-models)
+  - [How Does It Work](#how-does-it-work)
   - [Classify Your Own Image](#classify-your-own-image)
 
 
@@ -97,14 +97,14 @@ python3 check_images.py --dir pet_images/ --arch vgg --dogfile input/dognames.tx
 ```
 Use default parameters from terminal call or customise them: 
   - Folder that contains the pet images `--dir`
-          `pet_images/`
-          `uploaded_images/`
+      * `pet_images/`
+      * `uploaded_images/`
   - The CNN model architecture to use `--arch`
-          `resnet` 
-          `alexnet`
-          `vgg`
+      * `resnet` 
+      * `alexnet`
+      * `vgg`
   - The file that contains the list of valid dognames `--dogfile`
-          `input/dognames.txt`
+      * `input/dognames.txt`
 
 ### 3. Batch Classification
 Run bash script to classify the images with 3 different CNN models:
@@ -112,6 +112,18 @@ Run bash script to classify the images with 3 different CNN models:
 sh run_models_batch.sh
 ```
 check the generated statistics per CNN model architecture in the `output/` folder.
+
+## Performance Comparison of CNN Models
+
+In this image classification task, we have used three different pre-trained CNN models with distinct architectures. The table below presents the evaluation results for the comparison of these models:
+
+| CNN Model Architecture | % Not-a-Dog Correct | % Dogs Correct | % Breeds Correct |
+|-------------|:-----:|------:|------|
+| **RESNET**  |  90.0 | 100.0 | 90.0 |
+| **ALEXNET** | 100.0 | 100.0 | 80.0 |
+| **VGG**     | 100.0 | 100.0 | 93.3 |
+
+Based on the performance comparison, the **VGG** model architecture demonstrated the best performance in classifying the dog breeds on a sample of the images from the `pet_images/` folder. It achieved the highest accuracy in identifying the correct dog breeds compared to the **RESNET** and **ALEXNET** architectures.
 
 ## How Does It Work
 The Dog Breed Classification Service employs a set of pre-trained CNN models to classify dog images and predict their breeds. Here's an overview of the process:
@@ -125,19 +137,6 @@ The Dog Breed Classification Service employs a set of pre-trained CNN models to 
 4. **Model Comparison:** The Dog Breed Classification Service goes a step further by comparing the performance of three different CNN model architectures. These models have been trained using various techniques and architectures to improve classification accuracy. The service evaluates the performance of each model and provides a comparison of their results.
 
 5. **Summary Statistics:** To assist users in understanding the comparative performance of the CNN models, the service generates short summary statistics. These statistics can be found in the `models_comparison/` folder and provide insights into the accuracy and effectiveness of each model in classifying dog breeds.
-
-
-## Performance Comparison of CNN Models
-
-In this image classification task, we have used three different pre-trained CNN models with distinct architectures. The table below presents the evaluation results for the comparison of these models:
-
-| CNN Model Architecture | % Not-a-Dog Correct | % Dogs Correct | % Breeds Correct |
-|-------------|:-----:|------:|------|
-| **RESNET**  |  90.0 | 100.0 | 90.0 |
-| **ALEXNET** | 100.0 | 100.0 | 80.0 |
-| **VGG**     | 100.0 | 100.0 | 93.3 |
-
-Based on the performance comparison, the **VGG** model architecture demonstrated the best performance in classifying the dog breeds on a sample of the images from the `pet_images/` folder. It achieved the highest accuracy in identifying the correct dog breeds compared to the **RESNET** and **ALEXNET** architectures.
 
 ## Classify Your Own Image
 Follow these steps:
